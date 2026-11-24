@@ -57,7 +57,7 @@ def E(b,w):
   pc=b[i]
   if pc in '#.':continue
   u=pc.upper();f=i%10-1;rr=8-i//10 if pc.isupper() else i//10-1;cen=min(f,7-f)+min(rr,7-rr)
-  pos={'P':rr*7+(14 if f in (3,4) else 0),'N':cen*6-18*(rr==0),'B':cen*3,'R':16 if rr==6 else 0,'Q':cen*2,'K':cen*14-60 if mat>1600 else abs(f-3)*-6}[u]
+  pos={'P':rr*7+(14 if f in (3,4) else 0),'N':cen*6-18*(rr==0),'B':cen*3,'R':16 if rr==6 else 0,'Q':cen*2,'K':-cen*10 if mat>1600 else cen*12}[u]
   s+=(V[u]+pos) if pc.isupper() else -(V[u]+pos)
  s+=25*(b.count('B')>1)-25*(b.count('b')>1)
  return s if w else -s
